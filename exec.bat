@@ -1,0 +1,11 @@
+::cd crop
+::python clear.py
+::cd ..
+cd localization
+python localization.py
+cd ..
+cd crop
+python cropDir.py
+cd ..
+cd transcript
+python transcript.py
