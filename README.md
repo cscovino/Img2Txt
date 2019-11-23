@@ -12,12 +12,15 @@
 
 # Codigo 
 
-#Weights: \localization\weights
+Weights: \localization\weights
 
-[craft_mlt_25k.pth] (https://drive.google.com/file/d/1Jk4eGD7crsqCCg9C9VjCLkMN3ze8kutZ/view)
-[craft_ic15_20k.pth] (https://drive.google.com/file/d/1i2R7UIUqmkUtF0jv_3MXTqmQ_9wuAnLf/view)
-[craft_refiner_CTW1500.pth] (https://drive.google.com/file/d/1XSaFwBkOaFOdtk4Ane3DFyJGPRw6v5bO/view)
 
-#Models: \transcript\models
+[craft_mlt_25k.pth](https://drive.google.com/file/d/1Jk4eGD7crsqCCg9C9VjCLkMN3ze8kutZ/view)
 
-[TPS-ResNet-BiLSTM-Attn-case-sensitive.pth] (https://drive.google.com/drive/folders/15WPsuPJDCzhp2SvYZLRj8mAlT3zmoAMW)
+[craft_ic15_20k.pth](https://drive.google.com/file/d/1i2R7UIUqmkUtF0jv_3MXTqmQ_9wuAnLf/view)
+
+[craft_refiner_CTW1500.pth](https://drive.google.com/file/d/1XSaFwBkOaFOdtk4Ane3DFyJGPRw6v5bO/view)
+
+Models: \transcript\models
+
+[TPS-ResNet-BiLSTM-Attn-case-sensitive.pth](https://drive.google.com/drive/folders/15WPsuPJDCzhp2SvYZLRj8mAlT3zmoAMW)
