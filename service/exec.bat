@@ -1,0 +1,12 @@
+@echo off
+echo localization
+cd ../localization
+python localization.py
+echo crop
+cd ../crop
+python cropDir.py
+echo transcript
+cd ../transcript
+python transcript.py
+cd service
+echo fin
