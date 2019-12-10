@@ -1,9 +1,4 @@
-import os, shutil, argparse
-
-parser = argparse.ArgumentParser(description='Base Path')
-parser.add_argument('--basePath', default='./process/', help='base path')
-
-args = parser.parse_args()
+import os, shutil
 
 def clearFolder(folder):
 	for the_file in os.listdir(folder):
@@ -27,10 +22,5 @@ def main(basePath):
 
 
 if __name__ == '__main__':
-    import argparse
-
-    parser = argparse.ArgumentParser(description='Base path')
-    parser.add_argument('--basePath', required=True, help='Base path')
-    
-    args = parser.parse_args()
-    main(basePath=args.basePath)
+	basePath = "../process/"
+	main(basePath)
