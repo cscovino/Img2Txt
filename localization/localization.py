@@ -42,7 +42,7 @@ parser.add_argument('--text_threshold', default=0.7, type=float, help='text conf
 parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
 parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
 parser.add_argument('--cuda', default=False, type=str2bool, help='Use cuda for inference')
-parser.add_argument('--canvas_size', default=1280, type=int, help='image size for inference')
+parser.add_argument('--canvas_size', default=256, type=int, help='image size for inference')
 parser.add_argument('--mag_ratio', default=1.5, type=float, help='image magnification ratio')
 parser.add_argument('--poly', default=False, action='store_true', help='enable polygon type')
 parser.add_argument('--show_time', default=False, action='store_true', help='show processing time')
@@ -104,7 +104,7 @@ def test_net(net, image, text_threshold, link_threshold, low_text, cuda, poly, r
     render_img = np.hstack((render_img, score_link))
     ret_score_text = imgproc.cvt2HeatmapImg(render_img)
 
-    if args.show_time : print("\ninfer/postproc time : {:.3f}/{:.3f}".format(t0, t1))
+    #if args.show_time : print("\ninfer/postproc time : {:.3f}/{:.3f}".format(t0, t1))
 
     return boxes, polys, ret_score_text
 
@@ -114,7 +114,7 @@ if __name__ == '__main__':
 	# load net
 	net = CRAFT()     # initialize
 
-	print('Loading weights from checkpoint (' + args.trained_model + ')')
+	#print('Loading weights from checkpoint (' + args.trained_model + ')')
 	if args.cuda:
 		net.load_state_dict(copyStateDict(torch.load(args.trained_model)))
 	else:
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 	if args.refine:
 		from refinenet import RefineNet
 		refine_net = RefineNet()
-		print('Loading weights of refiner from checkpoint (' + args.refiner_model + ')')
+		#print('Loading weights of refiner from checkpoint (' + args.refiner_model + ')')
 		if args.cuda:
 			refine_net.load_state_dict(copyStateDict(torch.load(args.refiner_model)))
 			refine_net = refine_net.cuda()
@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
 	# load data
 	for k, image_path in enumerate(image_list):
-		print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path), end='\r')
+		#print("Test image {:d}/{:d}: {:s}".format(k+1, len(image_list), image_path), end='\r')
 		image = imgproc.loadImage(image_path)
 
 		bboxes, polys, score_text = test_net(net, image, args.text_threshold, args.link_threshold, args.low_text, args.cuda, args.poly, refine_net)
@@ -159,4 +159,4 @@ if __name__ == '__main__':
 
 		file_utils.saveResult(image_path, image[:,:,::-1], polys, dirname=result_folder)
 
-	print("elapsed time : {}s".format(time.time() - t))
+	#print("elapsed time : {}s".format(time.time() - t))
