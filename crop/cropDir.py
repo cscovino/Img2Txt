@@ -69,7 +69,7 @@ def cropRect(imgPath, cropRectPath, imageToCrop, extention, sufix, polygon):
 	img  = Image.open(imgPath + imageToCrop + extention)
 	area = img.crop(polygon)
 
-	print(imgPath + imageToCrop + extention, " cropRect -> ",cropRectPath + imageToCrop + sufix + ".png")
+	#print(imgPath + imageToCrop + extention, " cropRect -> ",cropRectPath + imageToCrop + sufix + ".png")
 	area.save(cropRectPath + imageToCrop + sufix + extention, 'png')
 	area.close()
 
@@ -100,7 +100,7 @@ def crop(path, cropPath, imageToCrop, extention, index, polygon):
 	
 	targetImgName = imageToCrop + str(index) + ".png"
 
-	print(path + imageToCrop + extention , " crop -> ", cropPath + targetImgName)
+	#print(path + imageToCrop + extention , " crop -> ", cropPath + targetImgName)
 
 	newIm.save(cropPath + targetImgName)
 	return(targetImgName)
