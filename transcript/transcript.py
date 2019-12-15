@@ -51,7 +51,8 @@ def demo(opt):
 	model.eval
 	
 	# Lista con los valores transcriptos
-	retList = list()
+	predList = list()
+	retList = dict()
 	
 	with torch.no_grad():
 		for image_tensors, image_path_list in demo_loader:
@@ -90,26 +91,33 @@ def demo(opt):
 
 				#Transcripciones
 				restult = {
-					'img_name': img_name,
-					'pred': str(pred),
-					'confidence_score' : f'{confidence_score:0.4f}'
+					"img_name": img_name,
+					"pred": str(pred),
+					"confidence_score" : f'{confidence_score:0.4f}'
 				}
-				retList.append(restult)
+				predList.append(restult)
 
 			#Imagenes location /location/
-			file_list = os.listdir("../process/location")
+			file_list_1 = os.listdir("../process/location")
+			file_list_2 = os.listdir("../process/images")
 			
-			for file in file_list:
-				restult = {'localizacion_url': "/location/"+file}
-				retList.append(restult)
+			retList["pred"] = predList
+			retList["localizacion_url"] = "/location/" + file_list_1[0]
+			retList["image_url"] = "/images/" + file_list_2[0]
+			
+			#for file in file_list:
+			#	restult = {"localizacion_url": "/location/"+file}
+			#	retList[]
 				
 			#Imagenes image /images/
-			file_list = os.listdir("../process/images")
+			#file_list = os.listdir("../process/images")
 			
-			for file in file_list:
-				restult = {'image_url': "/images/"+file}
-				retList.append(restult)
+			#for file in file_list:
+			#	restult = {"image_url": "/images/"+file}
+			#	retList.append(restult)
 
+			#json_mylist = json.dumps(retList)
+			
 			print(retList)
 	
 

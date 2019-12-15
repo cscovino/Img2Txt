@@ -35,6 +35,7 @@ def allowed_file(filename):
 
 @app.route('/file-upload', methods=['POST'])
 def upload_file():
+	
 	# check if the post request has the file part
 	if 'file' not in request.files:
 		resp = jsonify({'message' : 'No file part in the request'})
@@ -45,6 +46,7 @@ def upload_file():
 		resp = jsonify({'message' : 'No file selected for uploading'})
 		resp.status_code = 400
 		return resp
+		
 	if file and allowed_file(file.filename):	
 		#Limpia las imagenes
 		basePath = "../process/"
@@ -62,13 +64,18 @@ def upload_file():
 		file.save(os.path.join(app.config['TO_PROCESS_IMAGES'], filename))
 		
 		ret = executeProcess()
-		return ret
+		string = ret.decode('utf-8')
+		print("string ->", string)
+		dict = json.loads(string.replace("'","\""))
+		print("dict ->", dict)
+		jsResp = jsonify(dict)
+		return jsResp
 	else:
 		resp = jsonify({'message' : 'Allowed file types are txt, pdf, png, jpg, jpeg, gif'})
 		resp.status_code = 400
 		return resp
 		
-@app.route("/image/<image_name>")
+@app.route("/images/<image_name>")
 def get_image(image_name):
 	try:
 		f = "../process/images/" + image_name
@@ -76,13 +83,25 @@ def get_image(image_name):
 	except FileNotFoundError:
 		abort(404)
 
-@app.route("/localization/<image_name>")
+@app.route("/location/<image_name>")
 def get_location(image_name):
 	try:
-		f = "../process/localization/" + image_name
+		f = "../process/location/" + image_name
 		return send_file(f, mimetype='image/jpg')
 	except FileNotFoundError:
 		abort(404)
 		
+@app.route('/hello', methods=['POST'])
+def helloIndex():
+	print(request)
+	
+	try:
+		f = "ret.txt"
+		return send_file(f, mimetype='application/json')
+	except FileNotFoundError:
+		abort(404)
+	
+	#return jsonify(data='Hello World from Python Flask!')
+	
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)

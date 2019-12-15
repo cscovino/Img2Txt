@@ -1,0 +1,11 @@
+{
+"pred": [{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef20_rect.jpg", "pred": "DigitalHouse", "confidence_score": "0.9683"}, 
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef21_rect.jpg", "pred": ">", "confidence_score": "0.9971"}, 
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef22_rect.jpg", "pred": "soding", "confidence_score": "0.7702"},
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef23_rect.jpg", "pred": "School", "confidence_score": "0.9977"}, 
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef24_rect.jpg", "pred": "INTELIGENCIA", "confidence_score": "0.9811"},
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef25_rect.jpg", "pred": "ARTIFICIAL", "confidence_score": "0.9988"}, 
+{"img_name": "../process/cropRect/image-8e0e4692-1333-44cc-bcb1-dee0110adef26_rect.jpg", "pred": "Bert", "confidence_score": "1.0000"}], 
+"localizacion_url": "/location/image-8e0e4692-1333-44cc-bcb1-dee0110adef2.jpg", 
+"image_url": "/images/image-8e0e4692-1333-44cc-bcb1-dee0110adef2.jpg"
+}
