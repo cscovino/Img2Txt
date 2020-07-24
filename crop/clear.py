@@ -12,7 +12,7 @@ def clearFolder(folder):
 			print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 def main(basePath):
-	#basePath="../process/"
+	basePath="../process/"
 	clearFolder(basePath + "crop")
 	clearFolder(basePath + "cropRect")
 	clearFolder(basePath + "images")

@@ -23,7 +23,7 @@ def clearFolder(folder):
 			print('Failed to delete %s. Reason: %s' % (file_path, e))	
 
 def executeProcess():
-	command = 'exec.bat'
+	command = './exec.sh'
 
 	process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
 	output, error = process.communicate()

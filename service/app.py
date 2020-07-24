@@ -1,6 +1,6 @@
 from flask import Flask
 
-UPLOAD_FOLDER = 'C:/work/ia/curso/TP03/process/images'
+UPLOAD_FOLDER = '../process/images'
 
 app = Flask(__name__)
 app.secret_key = "secret key"
